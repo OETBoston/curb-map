@@ -4,13 +4,14 @@
 This project aims to create a comprehensive digital map of parking regulations in Boston by automatically processing street sign imagery and location data. The system processes street-level imagery to identify parking signs, extracts regulations from these signs, and maps them to specific curb zones.
 
 ## System Components
-1. Data Collection
-   - Integration with Panorama API for street-level imagery
-   - Identification and mapping of sign locations
-   - Definition and tracking of curb zones
+1. Mapping Curb Zones
+   - Integration with Cartegraph or Civis for sign location datas
+   - Filtering out non-parking regulations signs
+   - Plot all street signs
+   - Turning sign plots into curb zone polygons
 
 2. Computer Vision Processing
-   - Sign detection in street-level imagery
+   - Integration with Panorama API for street-level imagery
    - Text extraction from identified signs
    - Classification of sign types and regulations
 
@@ -18,11 +19,6 @@ This project aims to create a comprehensive digital map of parking regulations i
    - Extraction of rules from sign text
    - Assignment of regulations to specific curb zones
    - Handling of time-based and conditional regulations
-
-4. API Layer
-   - Data access endpoints for regulation queries
-   - Integration capabilities for external systems
-   - Zone-based regulation lookup
 
 ## Getting Started
 
@@ -61,8 +57,8 @@ cp .env.example .env
 ```
 boston-parking/
 ├── src/
-│   ├── data_collection/      # Panorama API integration and data gathering
-│   ├── computer_vision/      # Sign detection and text extraction
+│   ├── curb_zone_mapping     # Creating curb zone polygons
+│   ├── computer_vision/      # Panorama API integration andSign detection and text extraction
 │   ├── policy_engine/        # Rule processing and zone assignment
 │   └── api/                  # API endpoints and schemas
 ├── tests/                    # Unit and integration tests
@@ -70,24 +66,15 @@ boston-parking/
 └── scripts/                  # Utility scripts
 ```
 
-## Development Process
-1. Each component is developed independently
-2. Integration tests ensure components work together
-3. Continuous validation against known parking regulations
 
-## Contributing
-1. Fork the repository
-2. Create a feature branch
-3. Make your changes
-4. Submit a pull request
+
 
 ## Current Status
-- [ ] Initial project setup
+- [x] Initial project setup
 - [ ] Panorama API integration
-- [ ] Basic sign detection
-- [ ] Text extraction system
-- [ ] Rule processing engine
-- [ ] API development
+- [ ] Rules extraction system
+- [ ] Policy engine
+- [ ] Curb Zone Mapping
 - [ ] Documentation
 
 ## License
